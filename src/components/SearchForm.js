@@ -7,16 +7,16 @@ export default function SearchForm() {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character/").then(response => {
+    axios.get("https://rickandmortyapi.com/api/character/").then((response) => {
       const characters = response.data.results.filter(
-        character => character.name.startsWith(filter) //Checks to see if character name starts with what was in the empty string useState
+        (character) => character.name.includes(filter) //Checks to see if character name starts with what was in the empty string useState
       );
 
       setData(characters); //Adds the character data to the empty useState array
     });
   }, [filter]);
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setFilter(event.target.value);
   };
 
@@ -64,7 +64,7 @@ border-radius;
         onChange={handleInputChange}
       />
 
-      {data.map(character => {
+      {data.map((character) => {
         return (
           <div className="character-card">
             <Card>
