@@ -31,3 +31,8 @@ main {
 header h1 {
   text-align: center;
 }
+.Search {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
